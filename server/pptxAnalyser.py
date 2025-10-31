@@ -14,34 +14,46 @@ class SlideAnalyzer:
 
 
     def parse_slides(self):
-        """Extract all slide data"""
+        # Extract all slide data
         for idx, slide in enumerate(self.prs.slides):
+
             slide_info = {
                 'slide_number': idx + 1,
                 'text_elements': [],
                 'images': [],
                 'has_title': False,
-                'background_color': None
+                'background_colour': None
             }
             
             for shape in slide.shapes:
                 # Text extraction
                 if shape.has_text_frame:
+
                     for paragraph in shape.text_frame.paragraphs:
+
                         if paragraph.text.strip():
+
                             text_data = self._extract_text_properties(shape, paragraph)
                             slide_info['text_elements'].append(text_data)
                             
                             # Check if title
                             if shape.is_placeholder:
+
                                 try:
                                     if shape.placeholder_format.type == 1:  # Title
                                         slide_info['has_title'] = True
+                                    
                                 except:
                                     pass
+
+                            # if text size is bigger than 40 then count it as a title
+                            if text_data['font_size'] != None and text_data['font_size'] >= 40:
+                                slide_info['has_title'] = True
+
                 
                 # Image detection
                 if shape.shape_type == MSO_SHAPE_TYPE.PICTURE:
+                    
                     slide_info['images'].append({
                         'width': shape.width,
                         'height': shape.height
@@ -54,45 +66,58 @@ class SlideAnalyzer:
 
 
     def _extract_text_properties(self, shape, paragraph):
-        """Extract font size, color, and text"""
+        # Extract font size, colour, and text
         text = paragraph.text.strip()
         
         # Get font size (handle None)
         font_size = None
         if paragraph.runs:
-            run = paragraph.runs[0]
-            if run.font.size:
-                font_size = run.font.size.pt
+            for run in paragraph.runs:
+                if run.font.size:
+                    font_size = run.font.size.pt
+                    break  # Use first non-None size found
+        
+        # If still None, try to get from shape's text frame
+        if font_size is None and hasattr(shape, 'text_frame'):
+            try:
+                if shape.text_frame.paragraphs[0].font.size:
+                    font_size = shape.text_frame.paragraphs[0].font.size.pt
+            except:
+                pass
         
         # Get font name
         font_name = None
         if paragraph.runs and paragraph.runs[0].font.name:
             font_name = paragraph.runs[0].font.name
         
-        # Get text color
-        text_color = None
+        # Get text colour
+        text_colour = None
         if paragraph.runs:
+
             run = paragraph.runs[0]
+
             try:
-                if run.font.color and run.font.color.type == MSO_COLOR_TYPE.RGB:
-                    rgb = run.font.color.rgb
-                    text_color = (rgb[0], rgb[1], rgb[2])
+                if run.font.colour and run.font.colour.type == MSO_COLOR_TYPE.RGB:
+                    rgb = run.font.colour.rgb
+                    text_colour = (rgb[0], rgb[1], rgb[2])
+
             except (AttributeError, ValueError):
-                # Color not available or not RGB type
+                # colour not available or not RGB type
                 pass
         
         return {
             'text': text,
             'font_size': font_size,
             'font_name': font_name,
-            'color': text_color,
+            'colour': text_colour,
             'word_count': len(text.split())
         }
     
 
 
     def analyze(self):
-        """Run all checks and generate report"""
+        # Run all checks and generate report
+
         self.parse_slides()
         
         report = {
@@ -112,6 +137,7 @@ class SlideAnalyzer:
         
         # Per-slide checks
         for slide in self.slides_data:
+
             slide_report = self._analyze_slide(slide)
             report['slide_details'].append(slide_report)
             
@@ -146,7 +172,8 @@ class SlideAnalyzer:
 
 
     def _analyze_slide(self, slide):
-        """Analyze individual slide"""
+        # Analyze individual slide
+
         result = {
             'slide_number': slide['slide_number'],
             'critical_issues': [],
@@ -197,16 +224,18 @@ class SlideAnalyzer:
         if not slide['has_title'] and slide['text_elements']:
             result['warnings'].append("No title detected")
         
-        # 5. Color contrast (if colors available)
+        # 5. colour contrast (if colours available)
         self._check_contrast(slide, result)
         
         # 6. Image-to-text ratio
         if slide['images'] and slide['text_elements']:
             ratio = len(slide['images']) / len(slide['text_elements'])
+
             if ratio > 2:
                 result['warnings'].append(
                     "More images than text (may be cluttered)"
                 )
+
         elif not slide['images'] and not slide['text_elements']:
             result['warnings'].append("Empty slide")
 
@@ -220,17 +249,19 @@ class SlideAnalyzer:
 
 
     def _check_contrast(self, slide, result):
-        """Check color contrast using colorsys"""
-        # Look for text with colors
-        colors_found = [elem['color'] for elem in slide['text_elements'] 
-                       if elem['color']]
+        # Check colour contrast using coloursys
+        # Look for text with colours
+        colours_found = [elem['colour'] for elem in slide['text_elements'] 
+                       if elem['colour']]
         
-        if colors_found:
+        if colours_found:
             # Assume white background (common default)
-            bg_color = (255, 255, 255)
+            bg_colour = (255, 255, 255)
             
-            for text_color in colors_found:
-                ratio = self._calculate_contrast_ratio(text_color, bg_color)
+            for text_colour in colours_found:
+
+                ratio = self._calculate_contrast_ratio(text_colour, bg_colour)
+
                 if ratio < 4.5:
                     result['critical_issues'].append(
                         f"Poor contrast ratio {ratio:.1f}:1 (needs >4.5:1 for WCAG)"
@@ -240,7 +271,7 @@ class SlideAnalyzer:
 
 
     def _calculate_contrast_ratio(self, rgb1, rgb2):
-        """Calculate WCAG contrast ratio using colorsys"""
+        """Calculate WCAG contrast ratio using coloursys"""
         def relative_luminance(rgb):
             # Normalize RGB
             r, g, b = [x / 255.0 for x in rgb]
@@ -265,36 +296,44 @@ class SlideAnalyzer:
 
 
     def _check_font_consistency(self, report):
-        """Check if using too many fonts"""
+        # Check if using too many fonts
         fonts_used = set()
+
         for slide in self.slides_data:
+
             for elem in slide['text_elements']:
+
                 if elem['font_name']:
                     fonts_used.add(elem['font_name'])
         
         if len(fonts_used) > 2:
+
             report['warnings'].append(
                 f"Using {len(fonts_used)} different fonts (recommend <2 for consistency)"
             )
+
         elif len(fonts_used) <= 2 and fonts_used:
             report['strengths'].append("Consistent font usage")
     
 
 
     def _check_slide_count(self, report):
-        """Check if slide count is appropriate"""
+        # Check if slide count is appropriate
+
         count = len(self.slides_data)
         if count > 20:
+
             report['warnings'].append(
                 f"{count} slides (may be too long for typical presentation)"
             )
+
         elif count <= 15:
             report['strengths'].append(f"Appropriate slide count ({count})")
     
 
 
     def _estimate_time(self):
-        """Estimate presentation time in minutes"""
+        # Estimate presentation time in minutes
         total_time = 0
         for slide in self.slides_data:
             words = sum(elem['word_count'] for elem in slide['text_elements'])
@@ -307,10 +346,10 @@ class SlideAnalyzer:
 
 
     def _identify_strengths(self, report):
-        """Identify positive aspects"""
-        # Good image balance
+        # Identify positive aspects
+        # Good image balance, 1 image per 1-2 slides
         slides_with_images = sum(1 for s in self.slides_data if s['images'])
-        if 0.3 <= slides_with_images / len(self.slides_data) <= 0.7:
+        if 0.5 <= slides_with_images / len(self.slides_data) <= 1.0:
             report['strengths'].append("Good image balance")
         
         # Not too wordy
