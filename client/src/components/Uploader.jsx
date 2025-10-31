@@ -3,7 +3,7 @@ import UploadIcon from '../assets/cloud-upload.svg';
 import '../App.css';
 
 
-export default function Uploader() {
+export default function Uploader({ onAnalyze }) {
     const [file, setFile] = useState(null); 
     const [dragActive, setDragActive] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -16,6 +16,7 @@ export default function Uploader() {
         if (selectedFile.name.toLowerCase().endsWith('.pptx') && selectedFile.size < 100 * 1024 * 1024) {
             setFile(selectedFile);
             setErrorMessage('');
+            onAnalyze?.(selectedFile);
         } else {
             setErrorMessage('Please upload a .pptx file smaller than 100MB.');
         }

@@ -1,4 +1,4 @@
-#!/Users/tom/Developer/GitHub/slidescore/.venv/bin/python
+#!/Users/matthewlekman/Repos/slidescore/.venv/bin/python
 
 ##############################################################################
 #

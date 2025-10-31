@@ -2,12 +2,14 @@ import sys
 sys.path.append('/Users/tom/Developer/GitHub/slidescore/server')
 
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from pptxAnalyser import SlideAnalyzer
 import os
 import uuid
 
 app = Flask(__name__)
+CORS(app) 
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
