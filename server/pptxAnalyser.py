@@ -198,6 +198,11 @@ class SlideAnalyzer:
                 )
         elif not slide['images'] and not slide['text_elements']:
             result['warnings'].append("Empty slide")
+
+
+        result['score'] -= len(result['critical_issues'])
+        result['score'] -= len(result['warnings'])
+        result['score'] = max(0, min(100, result['score']))
         
         return result
     

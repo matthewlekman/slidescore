@@ -1,0 +1,107 @@
+{
+    "report": {
+        "critical_issues": [],
+        "estimated_time_minutes": 5.9,
+        "overall_score": 90,
+        "slide_details": [
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 1,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 2,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 3,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 4,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 5,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 6,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 7,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 8,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 9,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 99,
+                "slide_number": 10,
+                "warnings": [
+                    "No title detected"
+                ]
+            }
+        ],
+        "strengths": [
+            "Appropriate slide count (10)",
+            "Concise text (easy to read)"
+        ],
+        "total_slides": 10,
+        "warnings": [
+            "Slide 1: No title detected",
+            "Slide 2: No title detected",
+            "Slide 3: No title detected",
+            "Slide 4: No title detected",
+            "Slide 5: No title detected",
+            "Slide 6: No title detected",
+            "Slide 7: No title detected",
+            "Slide 8: No title detected",
+            "Slide 9: No title detected",
+            "Slide 10: No title detected"
+        ]
+    },
+    "success": true
+}
