@@ -79,7 +79,7 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
         </header>
 
 
-        <div className="slideshow flex gap-10">
+        <div className="slideshow grid grid-cols-1 gap-4">
       {slide_details.map((slide, index) => (
         <div className="border-2 rounded-lg p-4 border-main hover:bg-amber-100 transition hover:cursor-pointer" key={index}>
         <Slide json={slide}/>
