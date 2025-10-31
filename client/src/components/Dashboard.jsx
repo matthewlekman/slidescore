@@ -74,11 +74,13 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
 
 
         <div className="slideshow grid grid-cols-1 gap-4">
-      {slide_details.map((slide, index) => (
-        <div className="rounded-lg p-4 transition hover:cursor-pointer" key={index}>
-        <Slide json={slide}/>
-        </div>
-      ))}
+      {slide_details
+        .filter(slide => slide.score < 100)
+        .map((slide, index) => (
+          <div className="rounded-lg p-4 transition hover:cursor-pointer" key={index}>
+            <Slide json={slide}/>
+          </div>
+  ))}
     </div>
     </main>
 
