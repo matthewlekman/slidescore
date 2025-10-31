@@ -1,6 +1,7 @@
 import Slide from './Slide.jsx'
 import Chart from 'chart.js/auto';
 import { useEffect, useRef } from 'react';
+import Loading from './Loading.jsx';
 
 
 const AdminPage = () => {
@@ -10,7 +11,7 @@ const AdminPage = () => {
   const score = 54;
   const criticalIssues= [1,2];
   const estimatedTime = 5.4;
-  const slides = [[12,53],[53,2]]
+  const slides = [[12,53],[53,2],[3,23],[23,234]]
 
    useEffect(() => {
     const ctx = canvasRef.current.getContext("2d");
@@ -66,22 +67,29 @@ const AdminPage = () => {
         <header className="mb-5 flex flex-col gap-6 ">
 
             <h1 className="text-6xl font-bold">
-                <span className="text-p">{score}</span>
+                <span className="">{score}</span>
                 <span className="text-secondary"> / </span>
                 <span className="text-secondary">100</span>
             </h1>
             
-            <div className='flex justify-center items-center gap-8 font-bold'>
-                <h2 className="text-secondary-red text-xl">Critical Issues: {criticalIssues.length || 0}</h2>
-                <h2 className="text-secondary-red text-xl">Estimated Time: {estimatedTime}</h2>
+            <div className='flex justify-center items-center gap-8 font-medium'>
+                <h2 className="text-secondary-red text-xl">
+                  <span>Critical Issues: </span> 
+                  <span className="text-p">{criticalIssues.length || 0}</span>
+                </h2>
+                <h2 className="text-secondary-red text-xl">
+                <span>Estimated Time: </span>
+                <span className="text-p">{estimatedTime}</span> 
+                </h2>
             </div>
         </header>
 
+        <div className="h-px bg-linear-to-r from-transparent via-gray-400 to-transparent my-13" />
 
         <div className="slideshow flex gap-10">
       {slides.map((slide, index) => (
         <div className="border-2 rounded-lg p-4 border-main hover:bg-amber-100 transition hover:cursor-pointer">
-        <Slide key={index} json={slide}/>
+          <Slide key={index} json={slide}/>
         </div>
       ))}
     </div>

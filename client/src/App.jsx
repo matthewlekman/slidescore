@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Uploader from './components/Uploader'
+import Admin from './components/Admin'
+import Loading from './components/Loading'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,7 +22,7 @@ function App() {
       .then((json) => console.log(json));
   }
 
-  return <Uploader />
+  return <Admin />
 }
 
 export default App
