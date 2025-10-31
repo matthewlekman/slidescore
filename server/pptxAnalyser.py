@@ -46,8 +46,8 @@ class SlideAnalyzer:
                                 except:
                                     pass
 
-                            # if text size is bigger than 40 then count it as a title
-                            if text_data['font_size'] != None and text_data['font_size'] >= 40:
+                            # if text size is bigger than 32 then count it as a title
+                            if text_data['font_size'] != None and text_data['font_size'] >= 32:
                                 slide_info['has_title'] = True
 
                 
@@ -160,8 +160,8 @@ class SlideAnalyzer:
                     report['warnings'].append(val)
         
         # Calculate final score
-        report['overall_score'] -= len(report['critical_issues']) * 5
-        report['overall_score'] -= len(report['warnings']) * 2
+        report['overall_score'] -= len(report['critical_issues']) * 10
+        report['overall_score'] -= len(report['warnings']) * 5
         report['overall_score'] = max(0, min(100, report['overall_score']))
         
         # Find strengths
@@ -240,8 +240,8 @@ class SlideAnalyzer:
             result['warnings'].append("Empty slide")
 
 
-        result['score'] -= len(result['critical_issues']) * 5
-        result['score'] -= len(result['warnings']) * 2
+        result['score'] -= len(result['critical_issues']) * 10
+        result['score'] -= len(result['warnings']) * 5
         result['score'] = max(0, min(100, result['score']))
         
         return result
