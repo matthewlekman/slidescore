@@ -53,7 +53,7 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
     <main className="">
         {/* Chart */}
             <div className="flex justify-center items-center mb-5 ">
-                <div className="w-50 h-50">
+                <div className="w-50 h-50 mt-17">
                     <canvas ref={canvasRef}></canvas>
                 </div>
             </div>
