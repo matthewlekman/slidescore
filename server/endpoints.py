@@ -52,7 +52,7 @@ def analyze():
         file.save(filepath)
         
         # Analyze
-        analyzer = SlideAnalyzer(filepath)
+        analyzer = SlideAnalyzer(filepath, file.filename.split('.')[0])
         report = analyzer.analyze()
         
         # Cleanup

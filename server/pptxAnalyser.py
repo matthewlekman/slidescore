@@ -5,10 +5,14 @@ from pptx.enum.dml import MSO_COLOR_TYPE
 import colorsys
 
 class SlideAnalyzer:
-    def __init__(self, filepath):
+
+    def __init__(self, filepath, fileName):
         self.prs = Presentation(filepath)
         self.slides_data = []
+        self.fileName = fileName
         
+
+
     def parse_slides(self):
         """Extract all slide data"""
         for idx, slide in enumerate(self.prs.slides):
@@ -47,6 +51,8 @@ class SlideAnalyzer:
         
         return self.slides_data
     
+
+
     def _extract_text_properties(self, shape, paragraph):
         """Extract font size, color, and text"""
         text = paragraph.text.strip()
@@ -83,11 +89,14 @@ class SlideAnalyzer:
             'word_count': len(text.split())
         }
     
+
+
     def analyze(self):
         """Run all checks and generate report"""
         self.parse_slides()
         
         report = {
+            'title': self.fileName,
             'overall_score': 100,
             'total_slides': len(self.slides_data),
             'estimated_time_minutes': self._estimate_time(),
@@ -125,8 +134,8 @@ class SlideAnalyzer:
                     report['warnings'].append(val)
         
         # Calculate final score
-        report['overall_score'] -= len(report['critical_issues'])
-        report['overall_score'] -= len(report['warnings'])
+        report['overall_score'] -= len(report['critical_issues']) * 5
+        report['overall_score'] -= len(report['warnings']) * 2
         report['overall_score'] = max(0, min(100, report['overall_score']))
         
         # Find strengths
@@ -134,6 +143,8 @@ class SlideAnalyzer:
         
         return report
     
+
+
     def _analyze_slide(self, slide):
         """Analyze individual slide"""
         result = {
@@ -200,12 +211,14 @@ class SlideAnalyzer:
             result['warnings'].append("Empty slide")
 
 
-        result['score'] -= len(result['critical_issues'])
-        result['score'] -= len(result['warnings'])
+        result['score'] -= len(result['critical_issues']) * 5
+        result['score'] -= len(result['warnings']) * 2
         result['score'] = max(0, min(100, result['score']))
         
         return result
     
+
+
     def _check_contrast(self, slide, result):
         """Check color contrast using colorsys"""
         # Look for text with colors
@@ -224,6 +237,8 @@ class SlideAnalyzer:
                     )
                     break  # Only flag once per slide
     
+
+
     def _calculate_contrast_ratio(self, rgb1, rgb2):
         """Calculate WCAG contrast ratio using colorsys"""
         def relative_luminance(rgb):
@@ -247,6 +262,8 @@ class SlideAnalyzer:
         
         return (lighter + 0.05) / (darker + 0.05)
     
+
+
     def _check_font_consistency(self, report):
         """Check if using too many fonts"""
         fonts_used = set()
@@ -262,6 +279,8 @@ class SlideAnalyzer:
         elif len(fonts_used) <= 2 and fonts_used:
             report['strengths'].append("Consistent font usage")
     
+
+
     def _check_slide_count(self, report):
         """Check if slide count is appropriate"""
         count = len(self.slides_data)
@@ -272,6 +291,8 @@ class SlideAnalyzer:
         elif count <= 15:
             report['strengths'].append(f"Appropriate slide count ({count})")
     
+
+
     def _estimate_time(self):
         """Estimate presentation time in minutes"""
         total_time = 0
@@ -283,6 +304,8 @@ class SlideAnalyzer:
         
         return round(total_time, 1)
     
+
+
     def _identify_strengths(self, report):
         """Identify positive aspects"""
         # Good image balance
