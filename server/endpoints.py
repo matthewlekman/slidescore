@@ -25,19 +25,18 @@ def allowed_file(filename):
 def index():
     return jsonify({
         'service': 'SlideScore API',
-        'version': '1.0',
         'endpoints': {
             'analyze': 'POST /api/analyze (upload .pptx file)'
         }
     })
 
-@app.route('/api/analyze', methods=['POST'])
+@app.route('/api/analyse', methods=['POST'])
 def analyze():
     # Check if file present
-    if 'file' not in request.files:
+    if 'ppt' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
     
-    file = request.files['file']
+    file = request.files['ppt']
     
     if file.filename == '':
         return jsonify({'error': 'No file selected'}), 400
@@ -83,4 +82,4 @@ def after_request(response):
     return response
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=8000)
