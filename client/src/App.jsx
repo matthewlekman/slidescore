@@ -45,7 +45,11 @@ function App() {
         <img src={Logo} alt="SlideScore Logo" className="logo-image"/>
       </div>
       <div className="app-card">
-      {!reportData && <Uploader onAnalyze={handleAnalysis}/>}
+      {!reportData && (
+        <div className="uploader-wrapper">
+          <Uploader onAnalyze={handleAnalysis}/>
+        </div>
+      )}
       {reportData && <Dashboard {...reportData}/>}
       </div>
     </div>

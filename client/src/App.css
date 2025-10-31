@@ -68,16 +68,6 @@
   opacity: 0.5;
 }
 
-.app-container {
-  min-height: 100vh;
-  background: #EA580C;
-  display: flex;
-  align-items: stretch;  /* Changed from center - allows card to stretch */
-  justify-content: center;
-  padding: none;  /* Vertical and horizontal padding */
-  position: relative;
-}
-
 .app-logo {
   position: absolute;
   top: 2rem;
@@ -93,25 +83,32 @@
   width: auto;
 }
 
-css.app-container {
-  min-height: 100vh;
-  background: #f5f5f5;
+.app-container {
+  height: 100vh;  /* Full viewport height */
+  background: #EA580C;  /* Gray background (or #EA580C for orange) */
   display: flex;
-  align-items: stretch;  /* Changed from center - allows card to stretch */
+  align-items: stretch;
   justify-content: center;
-  padding: 3rem 3rem;  /* Vertical and horizontal padding */
+  padding: 0 3rem;  /* Only left/right padding */
   position: relative;
+  box-sizing: border-box;
 }
 
 .app-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 0;  /* No rounded corners for full-height */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 3rem;
-  width: 800px;
+  width: 1000px;
   flex-shrink: 0;
-  overflow-y: auto;
-  display: flex;  /* Add flex */
-  align-items: center;  /* Center vertically */
-  justify-content: center;  /* Center horizontally */
+  overflow-y: auto;  /* Scroll content */
+  display: flex;
+  flex-direction: column;
+}
+
+.uploader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
