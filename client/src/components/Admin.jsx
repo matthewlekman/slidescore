@@ -86,9 +86,9 @@ const AdminPage = () => {
 
         <div className="h-px bg-linear-to-r from-transparent via-gray-400 to-transparent my-13" />
 
-        <div className="slideshow flex gap-10">
+        <div className="grid grid-cols-1 gap-4">
       {slides.map((slide, index) => (
-        <div className="border-2 rounded-lg p-4 border-main hover:bg-amber-100 transition hover:cursor-pointer">
+        <div className="rounded-lg p-4 transition hover:cursor-pointer ">
           <Slide key={index} json={slide}/>
         </div>
       ))}
