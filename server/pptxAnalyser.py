@@ -108,17 +108,25 @@ class SlideAnalyzer:
             
             # Aggregate issues
             for issue in slide_report['critical_issues']:
-                report['critical_issues'].append(
-                    f"Slide {slide['slide_number']}: {issue}"
-                )
+
+                val = f"Slide {slide['slide_number']}: {issue}"
+
+                if not (val in report['critical_issues']):
+
+                    report['critical_issues'].append(val)
+
+                
             for issue in slide_report['warnings']:
-                report['warnings'].append(
-                    f"Slide {slide['slide_number']}: {issue}"
-                )
+
+                val = f"Slide {slide['slide_number']}: {issue}"
+
+                if not (val in report['warnings']):
+
+                    report['warnings'].append(val)
         
         # Calculate final score
-        report['overall_score'] -= len(report['critical_issues']) * 15
-        report['overall_score'] -= len(report['warnings']) * 5
+        report['overall_score'] -= len(report['critical_issues'])
+        report['overall_score'] -= len(report['warnings'])
         report['overall_score'] = max(0, min(100, report['overall_score']))
         
         # Find strengths
@@ -140,13 +148,21 @@ class SlideAnalyzer:
             size = elem['font_size']
             if size:
                 if size < 18:
-                    result['critical_issues'].append(
-                        f"Text too small ({size}pt, recommend >18pt)"
-                    )
+                    
+                    val = f"Text too small ({size}pt, recommend >18pt)"
+
+                    if not val in result['critical_issues']:
+
+                        result['critical_issues'].append(val)
+
+
                 elif size < 24 and not slide['has_title']:
-                    result['warnings'].append(
-                        f"Body text could be larger ({size}pt, recommend >24pt for readability)"
-                    )
+
+                    val = f"Body text could be larger ({size}pt, recommend >24pt for readability)"
+
+                    if not val in result['warnings']:
+
+                        result['warnings'].append(val)
         
         # 2. Word count
         total_words = sum(elem['word_count'] for elem in slide['text_elements'])
