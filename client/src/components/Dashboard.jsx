@@ -7,12 +7,6 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
   const canvasRef = useRef(null);
   const chartRef = useRef(null);
 
-  /*
-  const score = 54;
-  const criticalIssues= [1,2];
-  const estimatedTime = 5.4;
-  const slides = [[12,53],[53,2]]
-  */
    useEffect(() => {
     const ctx = canvasRef.current.getContext("2d");
     
@@ -79,9 +73,9 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
         </header>
 
 
-        <div className="slideshow flex gap-10">
+        <div className="column flex gap-10">
       {slide_details.map((slide, index) => (
-        <div className="border-2 rounded-lg p-4 border-main hover:bg-amber-100 transition hover:cursor-pointer" key={index}>
+        <div className="rounded-lg p-4 transition hover:cursor-pointer" key={index}>
         <Slide json={slide}/>
         </div>
       ))}
