@@ -1,107 +1,438 @@
 {
     "report": {
-        "title": "goodPPT",
-        "critical_issues": [],
-        "estimated_time_minutes": 5.9,
-        "overall_score": 90,
+        "critical_issues": [
+            "Slide 4: Text too small (14.0pt, recommend >18pt)",
+            "Slide 6: Text too small (10.0pt, recommend >18pt)",
+            "Slide 7: Text too small (10.0pt, recommend >18pt)",
+            "Slide 10: Text too small (16.0pt, recommend >18pt)",
+            "Slide 13: Text too small (16.0pt, recommend >18pt)",
+            "Slide 13: Text too small (14.0pt, recommend >18pt)",
+            "Slide 15: Text too small (17.0pt, recommend >18pt)",
+            "Slide 15: Text too small (15.0pt, recommend >18pt)",
+            "Slide 17: Text too small (16.0pt, recommend >18pt)",
+            "Slide 20: Text too small (16.0pt, recommend >18pt)",
+            "Slide 25: Text too small (16.0pt, recommend >18pt)",
+            "Slide 29: Text too small (16.0pt, recommend >18pt)",
+            "Slide 31: Text too small (16.0pt, recommend >18pt)",
+            "Slide 33: Text too small (17.0pt, recommend >18pt)",
+            "Slide 33: Text too small (14.0pt, recommend >18pt)",
+            "Slide 42: Text too small (16.0pt, recommend >18pt)"
+        ],
+        "estimated_time_minutes": 33.6,
+        "overall_score": 0,
         "slide_details": [
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 1,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 2,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 3,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
-                "critical_issues": [],
-                "score": 99,
+                "critical_issues": [
+                    "Text too small (14.0pt, recommend >18pt)"
+                ],
+                "score": 90,
                 "slide_number": 4,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 5,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
-                "critical_issues": [],
-                "score": 99,
+                "critical_issues": [
+                    "Text too small (10.0pt, recommend >18pt)"
+                ],
+                "score": 85,
                 "slide_number": 6,
                 "warnings": [
-                    "No title detected"
+                    "76 words (recommend <50 for clarity)"
                 ]
             },
             {
-                "critical_issues": [],
-                "score": 99,
+                "critical_issues": [
+                    "Text too small (10.0pt, recommend >18pt)"
+                ],
+                "score": 85,
                 "slide_number": 7,
                 "warnings": [
-                    "No title detected"
+                    "79 words (recommend <50 for clarity)"
                 ]
             },
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 8,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
                 "critical_issues": [],
-                "score": 99,
+                "score": 100,
                 "slide_number": 9,
-                "warnings": [
-                    "No title detected"
-                ]
+                "warnings": []
             },
             {
-                "critical_issues": [],
-                "score": 99,
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 85,
                 "slide_number": 10,
                 "warnings": [
+                    "71 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 11,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 12,
+                "warnings": []
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)",
+                    "Text too small (14.0pt, recommend >18pt)"
+                ],
+                "score": 75,
+                "slide_number": 13,
+                "warnings": [
+                    "73 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 90,
+                "slide_number": 14,
+                "warnings": [
+                    "55 words (recommend <50 for clarity)",
                     "No title detected"
                 ]
+            },
+            {
+                "critical_issues": [
+                    "Text too small (17.0pt, recommend >18pt)",
+                    "Text too small (15.0pt, recommend >18pt)"
+                ],
+                "score": 75,
+                "slide_number": 15,
+                "warnings": [
+                    "69 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 16,
+                "warnings": []
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 80,
+                "slide_number": 17,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 95,
+                "slide_number": 18,
+                "warnings": [
+                    "95 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 90,
+                "slide_number": 19,
+                "warnings": [
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 90,
+                "slide_number": 20,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 85,
+                "slide_number": 21,
+                "warnings": [
+                    "Body text could be larger (21.0pt, recommend >24pt for readability)",
+                    "Body text could be larger (19.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 22,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 23,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 95,
+                "slide_number": 24,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 75,
+                "slide_number": 25,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 26,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 27,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 28,
+                "warnings": []
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 75,
+                "slide_number": 29,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "63 words (recommend <50 for clarity)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 30,
+                "warnings": []
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 80,
+                "slide_number": 31,
+                "warnings": [
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 90,
+                "slide_number": 32,
+                "warnings": [
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [
+                    "Text too small (17.0pt, recommend >18pt)",
+                    "Text too small (14.0pt, recommend >18pt)"
+                ],
+                "score": 75,
+                "slide_number": 33,
+                "warnings": [
+                    "75 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 34,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 35,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 36,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 95,
+                "slide_number": 37,
+                "warnings": [
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 90,
+                "slide_number": 38,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 85,
+                "slide_number": 39,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 85,
+                "slide_number": 40,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 80,
+                "slide_number": 41,
+                "warnings": [
+                    "Body text could be larger (22.0pt, recommend >24pt for readability)",
+                    "Body text could be larger (20.0pt, recommend >24pt for readability)",
+                    "54 words (recommend <50 for clarity)",
+                    "No title detected"
+                ]
+            },
+            {
+                "critical_issues": [
+                    "Text too small (16.0pt, recommend >18pt)"
+                ],
+                "score": 85,
+                "slide_number": 42,
+                "warnings": [
+                    "57 words (recommend <50 for clarity)"
+                ]
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 43,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 44,
+                "warnings": []
+            },
+            {
+                "critical_issues": [],
+                "score": 100,
+                "slide_number": 45,
+                "warnings": []
             }
         ],
         "strengths": [
-            "Appropriate slide count (10)",
             "Concise text (easy to read)"
         ],
-        "total_slides": 10,
+        "title": "badPPT",
+        "total_slides": 45,
         "warnings": [
-            "Slide 1: No title detected",
-            "Slide 2: No title detected",
-            "Slide 3: No title detected",
-            "Slide 4: No title detected",
-            "Slide 5: No title detected",
-            "Slide 6: No title detected",
-            "Slide 7: No title detected",
-            "Slide 8: No title detected",
-            "Slide 9: No title detected",
-            "Slide 10: No title detected"
+            "Using 5 different fonts (recommend <2 for consistency)",
+            "45 slides (may be too long for typical presentation)",
+            "Slide 6: 76 words (recommend <50 for clarity)",
+            "Slide 7: 79 words (recommend <50 for clarity)",
+            "Slide 10: 71 words (recommend <50 for clarity)",
+            "Slide 13: 73 words (recommend <50 for clarity)",
+            "Slide 14: 55 words (recommend <50 for clarity)",
+            "Slide 14: No title detected",
+            "Slide 15: 69 words (recommend <50 for clarity)",
+            "Slide 17: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 17: No title detected",
+            "Slide 18: 95 words (recommend <50 for clarity)",
+            "Slide 19: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 19: No title detected",
+            "Slide 21: Body text could be larger (21.0pt, recommend >24pt for readability)",
+            "Slide 21: Body text could be larger (19.0pt, recommend >24pt for readability)",
+            "Slide 21: No title detected",
+            "Slide 24: No title detected",
+            "Slide 25: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 25: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 25: No title detected",
+            "Slide 29: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 29: 63 words (recommend <50 for clarity)",
+            "Slide 29: No title detected",
+            "Slide 31: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 31: No title detected",
+            "Slide 32: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 32: No title detected",
+            "Slide 33: 75 words (recommend <50 for clarity)",
+            "Slide 37: No title detected",
+            "Slide 38: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 38: No title detected",
+            "Slide 39: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 39: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 39: No title detected",
+            "Slide 40: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 40: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 40: No title detected",
+            "Slide 41: Body text could be larger (22.0pt, recommend >24pt for readability)",
+            "Slide 41: Body text could be larger (20.0pt, recommend >24pt for readability)",
+            "Slide 41: 54 words (recommend <50 for clarity)",
+            "Slide 41: No title detected",
+            "Slide 42: 57 words (recommend <50 for clarity)"
         ]
     },
     "success": true
