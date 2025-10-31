@@ -4,6 +4,7 @@ import '../App.css';
 
 
 export default function Uploader({ onAnalyze }) {
+    
     const [file, setFile] = useState(null); 
     const [dragActive, setDragActive] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
