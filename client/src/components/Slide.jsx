@@ -17,7 +17,7 @@ const Slide = ({json}) => {
         onClick={toggleDropdown}
       >
         <span className="text-main text-xl font-bold">
-          Slide {slideNumber}
+          Slide {slide_number}
         </span>
         <div className="flex items-center gap-2">
           <span className="text-p tracking-tighter">
