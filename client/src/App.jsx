@@ -1,28 +1,19 @@
 import { useState } from 'react'
 import './App.css'
 import Uploader from './components/Uploader'
-import Admin from './components/Admin'
-import Loading from './components/Loading'
+import { analyzePresentation} from './services/api';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const apiRequest = (file) => {
-
-    fetch("http://localhost:8000/api/analyse", {
-      method: "POST",
-      body: JSON.stringify({
-        ppt: file
-      }),
-      headers: {
-        "Content-type": "application/json"
-      }
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+  const handleAnalysis = async (file) => {
+    try {
+      const result = await analyzePresentation(file);
+      console.log("Analysis result: ", result);
+    } catch (error) {
+      console.error("Analysis faiiled: ", error);
+    }
   }
 
-  return <Admin />
+  return <Uploader onAnalyze={handleAnalysis}/>
 }
 
-export default App
+export default App;
