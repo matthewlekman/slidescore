@@ -120,7 +120,6 @@ class SlideAnalyzer:
         report['overall_score'] -= len(report['critical_issues']) * 15
         report['overall_score'] -= len(report['warnings']) * 5
         report['overall_score'] = max(0, min(100, report['overall_score']))
-        report['grade'] = self._score_to_grade(report['overall_score'])
         
         # Find strengths
         self._identify_strengths(report)
@@ -142,11 +141,11 @@ class SlideAnalyzer:
             if size:
                 if size < 18:
                     result['critical_issues'].append(
-                        f"Text too small ({size}pt, recommend ≥18pt)"
+                        f"Text too small ({size}pt, recommend >18pt)"
                     )
                 elif size < 24 and not slide['has_title']:
                     result['warnings'].append(
-                        f"Body text could be larger ({size}pt, recommend ≥24pt for readability)"
+                        f"Body text could be larger ({size}pt, recommend >24pt for readability)"
                     )
         
         # 2. Word count
@@ -164,7 +163,7 @@ class SlideAnalyzer:
         )
         if bullet_count > 6:
             result['warnings'].append(
-                f"{bullet_count} bullet points (recommend ≤6)"
+                f"{bullet_count} bullet points (recommend <6)"
             )
         
         # 4. Missing title
@@ -200,7 +199,7 @@ class SlideAnalyzer:
                 ratio = self._calculate_contrast_ratio(text_color, bg_color)
                 if ratio < 4.5:
                     result['critical_issues'].append(
-                        f"Poor contrast ratio {ratio:.1f}:1 (needs ≥4.5:1 for WCAG)"
+                        f"Poor contrast ratio {ratio:.1f}:1 (needs >4.5:1 for WCAG)"
                     )
                     break  # Only flag once per slide
     
@@ -237,7 +236,7 @@ class SlideAnalyzer:
         
         if len(fonts_used) > 2:
             report['warnings'].append(
-                f"Using {len(fonts_used)} different fonts (recommend ≤2 for consistency)"
+                f"Using {len(fonts_used)} different fonts (recommend <2 for consistency)"
             )
         elif len(fonts_used) <= 2 and fonts_used:
             report['strengths'].append("Consistent font usage")
@@ -262,14 +261,6 @@ class SlideAnalyzer:
             total_time += time
         
         return round(total_time, 1)
-    
-    def _score_to_grade(self, score):
-        """Convert score to letter grade"""
-        if score >= 90: return 'A'
-        elif score >= 80: return 'B'
-        elif score >= 70: return 'C'
-        elif score >= 60: return 'D'
-        else: return 'F'
     
     def _identify_strengths(self, report):
         """Identify positive aspects"""
