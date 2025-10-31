@@ -1,15 +1,54 @@
 from pptx import Presentation
 from pptx.util import Pt
 from pptx.enum.shapes import MSO_SHAPE_TYPE
-from pptx.enum.dml import MSO_COLOR_TYPE
+from pptx.exc import PackageNotFoundError  # Add this import
 import colorsys
+import os
+import zipfile
 
 class SlideAnalyzer:
 
-    def __init__(self, filepath, fileName):
+    def __init__(self, filepath, filename):
+
+        # check file isnt corrupted
+        self._validate_file(filepath)
+
+        self.filepath = filepath
         self.prs = Presentation(filepath)
         self.slides_data = []
-        self.fileName = fileName
+        self.fileName = filename
+    
+    def _validate_file(self, filepath):
+
+        # Check file exists
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f"File not found: {filepath}")
+        
+        # Check file is not empty
+        if os.path.getsize(filepath) == 0:
+            raise ValueError("File is empty")
+        
+        # Check it's a valid ZIP file (PPTX files are ZIP archives)
+        try:
+            with zipfile.ZipFile(filepath, 'r') as zip_ref:
+                # Test ZIP integrity
+                bad_file = zip_ref.testzip()
+                if bad_file:
+                    raise ValueError(f"Corrupted file detected: {bad_file}")
+                
+        except zipfile.BadZipFile:
+            raise ValueError("File is not a valid PPTX (corrupted or wrong format)")
+        
+        except Exception as e:
+            raise ValueError(f"Cannot read file: {str(e)}")
+        
+        # Check magic bytes
+        with open(filepath, 'rb') as f:
+
+            magic = f.read(4)
+
+            if magic[:2] != b'PK':
+                raise ValueError("File is not a valid PPTX format")
         
 
 
@@ -118,7 +157,18 @@ class SlideAnalyzer:
     def analyze(self):
         # Run all checks and generate report
 
-        self.parse_slides()
+        try:
+            self.parse_slides()
+
+        except Exception as e:
+            print(f"File appears corrupted: {e}")
+
+            return jsonify({
+            'success': False,
+            'report': 'File appears corrupted'
+        })
+
+        # self.parse_slides()
         
         report = {
             'title': self.fileName,
