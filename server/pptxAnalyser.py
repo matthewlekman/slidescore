@@ -1,7 +1,8 @@
 from pptx import Presentation
 from pptx.util import Pt
 from pptx.enum.shapes import MSO_SHAPE_TYPE
-from pptx.exc import PackageNotFoundError  # Add this import
+from pptx.enum.dml import MSO_COLOR_TYPE
+from pptx.exc import PackageNotFoundError
 import colorsys
 import os
 import zipfile
@@ -157,18 +158,7 @@ class SlideAnalyzer:
     def analyze(self):
         # Run all checks and generate report
 
-        try:
-            self.parse_slides()
-
-        except Exception as e:
-            print(f"File appears corrupted: {e}")
-
-            return jsonify({
-            'success': False,
-            'report': 'File appears corrupted'
-        })
-
-        # self.parse_slides()
+        self.parse_slides()
         
         report = {
             'title': self.fileName,
