@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -44,22 +44,74 @@
 .drop-zone {
   border: 2px dashed #888;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 4rem;
   text-align: center;
   color: #888;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  width: 100%;  /* Fill card width */
+  min-height: 400px;  /* Fixed height so it doesn't shrink */
+  box-sizing: border-box;  /* Include padding in width */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2rem;  /* Space between elements */
 }
 
 .upload-icon {
-  width: 64px;
-  height: 64px;
+  width: 96px;  /* Bigger icon - was 64px */
+  height: 96px;
   cursor: pointer;
 }
 
 .upload-icon:hover { 
   opacity: 0.5;
+}
+
+.app-container {
+  min-height: 100vh;
+  background: #EA580C;
+  display: flex;
+  align-items: stretch;  /* Changed from center - allows card to stretch */
+  justify-content: center;
+  padding: none;  /* Vertical and horizontal padding */
+  position: relative;
+}
+
+.app-logo {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;  /* Center using flexbox */
+  z-index: 10;
+}
+
+.logo-image {
+  height: 80px;  /* Bigger - was 40px */
+  width: auto;
+}
+
+css.app-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  align-items: stretch;  /* Changed from center - allows card to stretch */
+  justify-content: center;
+  padding: 3rem 3rem;  /* Vertical and horizontal padding */
+  position: relative;
+}
+
+.app-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 800px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  display: flex;  /* Add flex */
+  align-items: center;  /* Center vertically */
+  justify-content: center;  /* Center horizontally */
 }
