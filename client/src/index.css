@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main: #EF931A;
-  --color-secondary: #FBB13C;
-  --color-secondary-red: #FF5833;
-  --color-p: #57B8FF;
+  --color-main: #FF6B35;
+  --color-secondary: #FFB399;;
+  --color-secondary-red: #1F2937;
+  --color-p: #1F2937;
   --color-p-dark: #2176AE;
+
+  --primary-hover: #E55A2B
 }
 
 :root {
@@ -15,7 +17,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #F9FAFB;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
