@@ -2,15 +2,12 @@ import { useState } from 'react';
 
 const Slide = ({json}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { slide_number = 0, critical_issues = [], score = 0, warnings = [] } = json;
   
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
   
-  const slideNumber = 1;
-  const criticalIssues = 1;
-  const score = 1;
-  const warnings = ['1', '2'];
   
   return (
     <>
@@ -45,7 +42,7 @@ const Slide = ({json}) => {
           <main className="text-left">
 
             <div>
-              <h2 className="text-secondary-red">Critical Issues: {criticalIssues}</h2>
+              <h2 className="text-secondary-red">Critical Issues: {critical_issues}</h2>
               <h2 className="text-secondary">Score: {score}</h2>
               <ul className="text-secondary">
                 <h2 className="">Warnings</h2>
