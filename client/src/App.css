@@ -69,13 +69,13 @@
 }
 
 .app-logo {
-  position: absolute;
-  top: 2rem;
-  left: 0;
-  right: 0;
+  position: relative;  /* Not sticky */
   display: flex;
-  justify-content: center;  /* Center using flexbox */
+  justify-content: center;
   z-index: 10;
+  background: white;
+  padding: 2rem 0;
+  flex-shrink: 0;  /* Don't shrink */
 }
 
 .logo-image {
@@ -96,14 +96,19 @@
 
 .app-card {
   background: white;
-  border-radius: 0;  /* No rounded corners for full-height */
+  border-radius: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 3rem;
   width: 1000px;
   flex-shrink: 0;
-  overflow-y: auto;  /* Scroll content */
   display: flex;
   flex-direction: column;
+  overflow: hidden;  /* Change from auto to hidden */
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;  /* Scroll happens here instead */
+  padding: 0 3rem 3rem 3rem;
 }
 
 .uploader-wrapper {
@@ -111,4 +116,22 @@
   align-items: center;
   justify-content: center;
   flex: 1;
+}
+
+.app-hero {
+  margin-top: 160px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
 }
