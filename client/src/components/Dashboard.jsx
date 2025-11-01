@@ -14,6 +14,12 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
     if (chartRef.current) {
       chartRef.current.destroy();
     }
+
+    const getScoreColor = (score) => {
+      if (score >= 85) return "#48e83c";   
+      if (score >= 60) return "#FF6B35";     
+      return "#ef4444";                        
+    };
     
     chartRef.current = new Chart(ctx, {
       type: "doughnut",
@@ -21,7 +27,8 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
         datasets: [
           { 
             data: [score, 100 - score],
-            backgroundColor: ["#48e83c", "#ffffff"],
+            backgroundColor: [getScoreColor(score), "#ffffff"
+        ],
             borderWidth: 0
           }
         ]
