@@ -18,7 +18,7 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
     const getScoreColor = (score) => {
       if (score >= 85) return "#48e83c";   
       if (score >= 60) return "#FF6B35";     
-      return "#ef4444";                        
+      return "#ef4444";
     };
     
     chartRef.current = new Chart(ctx, {
@@ -78,22 +78,31 @@ export default function Dashboard({ score = 0, criticalIssues = [], estimatedTim
                 <h2 className="text-secondary-red text-xl">Estimated Time: {estimatedTime}</h2>
             </div>
         </header>
+        
+        {/* Report */}
+        <div 
+          className="border-2 border-secondary rounded-2xl overflow-hidden transition-all duration-300 ease-in-out mb-5 animate-fade-in">
+          <div className="p-4">
+            <h2 className="text-main font-bold text-4xl">Report</h2>
+            <main className="text-left py-4">
+              <div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <div className="slideshow grid grid-cols-1">
 
 
-        <div className="slideshow grid grid-cols-1 gap-4">
       {slide_details
         .filter(slide => slide.score < 100)
         .map((slide, index) => (
-          <div className="rounded-lg p-4 transition hover:cursor-pointer" key={index}>
+          <div className="rounded-lg transition hover:cursor-pointer" key={index}>
             <Slide json={slide}/>
           </div>
   ))}
     </div>
     </main>
-
-
-    
-    
     </>
   )
 };
