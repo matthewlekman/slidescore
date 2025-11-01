@@ -63,13 +63,28 @@ export default function Report({report}) {
         handleGenerateReport();
     }, []);
 
+    console.log("reportMessage state:", reportMessage); 
+
     return (
-        <div>
-            <ul>
-                {reportMessage.map((message, index) => (
-                    <li key={index}>{message}</li>
-                ))}
+    <div className="border-2 border-secondary rounded-2xl overflow-hidden transition-all duration-300 ease-in-out mb-5 animate-fade-in">
+        <div className="p-4">
+        <h2 className="text-main font-bold text-2xl">Your Tailored Feeback</h2>
+        <main className="text-left py-4">
+            <ul style={{
+            listStyleType: 'disc',
+            paddingLeft: '1.5rem',
+            color: '#333',
+            fontSize: '20px',
+            lineHeight: '1.6'
+            }}>
+            {reportMessage.map((message, index) => (
+                <li key={index} style={{ marginBottom: '0.75rem' }}>
+                {message}
+                </li>
+            ))}
             </ul>
+        </main>
         </div>
-)
+    </div>
+    )
 }

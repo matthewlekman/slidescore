@@ -16,19 +16,13 @@ function App() {
 
       const { report } = result;
       const { overall_score, critical_issues, estimated_time_minutes, slide_details } = report;
-      setReportData({
-        score: overall_score,
-        criticalIssues: critical_issues,
-        estimatedTime: estimated_time_minutes,
-        slide_details: slide_details
-      });
+      setReportData(report);
     } catch (error) {
       console.error("Analysis failed: ", error);
     }
   }
 return (
   <div className="app-container">
-    {/* Floating slides */}
     <Floaters delay={0} x="10%" y="20%" duration={4} />
     <Floaters delay={1} x="85%" y="15%" duration={5} />
     <Floaters delay={2} x="50%" y="10%" duration={4.2} />
@@ -39,12 +33,9 @@ return (
     <Floaters delay={2.2} x="45%" y="85%" duration={4.8} />
     
     <div className="app-card">
-      {/* Logo - stays fixed */}
       <div className="app-logo">
         <img src={Logo} alt="SlideScore Logo" className="logo-image"/>
       </div>
-      
-      {/* Scrollable content area */}
       <div className="app-content">
         {!reportData && (
           <>
@@ -61,7 +52,14 @@ return (
             </div>
           </>
         )}
-        {reportData && <Dashboard {...reportData}/>}
+        {reportData && 
+          <Dashboard 
+          overall_score={reportData.overall_score}
+          critical_issues={reportData.critical_issues}
+          estimated_time_minutes={reportData.estimated_time_minutes}
+          slide_details={reportData.slide_details}
+          total_slides={reportData.total_slides}
+        />}
       </div>
     </div>
   </div>
