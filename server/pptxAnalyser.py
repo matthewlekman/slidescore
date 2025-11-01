@@ -200,9 +200,9 @@ class SlideAnalyzer:
                     report['warnings'].append(val)
         
         # Calculate final score
-        report['overall_score'] -= len(report['critical_issues']) * 5
-        report['overall_score'] -= len(report['warnings']) * 2
-        report['overall_score'] = max(0, min(100, report['overall_score']))
+        report['overall_score'] -= len(report['critical_issues'])
+        report['overall_score'] -= len(report['warnings']) * 0.8
+        report['overall_score'] = int(max(0, min(100, report['overall_score'])))
         
         # Find strengths
         self._identify_strengths(report)
