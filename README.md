@@ -97,8 +97,11 @@ Creating an effective PowerPoint presentation requires balancing visual appeal w
 ## Grading Your Presentation
 
 ### Point Deductions
-- **Critical issues:** -10 points each (text too small, poor contrast, etc.)
-- **Warnings:** -5 points each (too many bullets, inconsistent fonts, etc.)
+- **Critical issues:** -1 points each (text too small, poor contrast, etc.)
+- **Warnings:** -0.8 points each (too many bullets, inconsistent fonts, etc.)
+
+- **Critical issues:** (per slide) -10 points each (text too small, poor contrast, etc.)
+- **Warnings:** (per slide) -5 points each (too many bullets, inconsistent fonts, etc.)
 
 ---
 
