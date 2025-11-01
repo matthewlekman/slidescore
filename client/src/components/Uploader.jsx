@@ -41,6 +41,7 @@ export default function Uploader({ onAnalyze }) {
     const handleClick = () => {
         fileInputRef.current.click();
     }
+    
 
     return (
         <div className="drop-zone" 

@@ -41,7 +41,8 @@ function App() {
       <Floaters delay={0.5} x="15%" y="70%" duration={4.5} />
       <Floaters delay={1.5} x="80%" y="75%" duration={3.5} />
       <Floaters delay={2.2} x="45%" y="85%" duration={4.8} />
-        <div className="app-logo">
+       
+        <div className="app-logo relative">
           <img src={Logo} alt="SlideScore Logo" className="logo-image"/>
         </div>
       <div className="app-card">
