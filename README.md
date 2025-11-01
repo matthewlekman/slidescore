@@ -73,7 +73,6 @@ Creating an effective PowerPoint presentation requires balancing visual appeal w
 - **Ideal for 10-minute talk:** 10-12 slides
 - Rule of thumb: 1-2 minutes per slide
 
-**Why it matters:** Attention spans are limited. Fewer, well-crafted slides are more effective than many cluttered ones.
 
 ### Estimated Speaking Time
 - Allow approximately 150 words per minute speaking rate
@@ -97,27 +96,8 @@ Creating an effective PowerPoint presentation requires balancing visual appeal w
 ## Grading Your Presentation
 
 ### Point Deductions
-- **Critical issues:** -10 points each (text too small, poor contrast, etc.)
-- **Warnings:** -5 points each (too many bullets, inconsistent fonts, etc.)
+- **Critical issues:** -1 points each (text too small, poor contrast, etc.)
+- **Warnings:** -0.8 points each (too many bullets, inconsistent fonts, etc.)
 
----
-
-## Key Strengths to Aim For
-
-✓ **Consistent font usage** throughout presentation  
-✓ **Appropriate slide count** (≤15 slides ideal)  
-✓ **Good image balance** (30-70% of slides)  
-✓ **Concise text** (≤40 words average per slide)  
-✓ **Clear hierarchy** with titles and structure  
-✓ **Strong contrast** for readability  
-✓ **Professional appearance** with consistent design  
-
----
-
-## Final Tips
-
-1. **Design for the back row** - If someone in the last seat can't read it, it's too small
-2. **One idea per slide** - Don't try to cram multiple concepts together
-3. **Use visuals wisely** - Images should clarify, not decorate
-4. **Practise your delivery** - Great slides still need great presentation
-5. **Test in the actual space** - Check visibility and readability before presenting
+- **Critical issues:** (per slide) -10 points each (text too small, poor contrast, etc.)
+- **Warnings:** (per slide) -5 points each (too many bullets, inconsistent fonts, etc.)
