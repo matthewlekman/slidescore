@@ -1,14 +1,24 @@
 @import "tailwindcss";
 
 @theme {
+  /* Colors */
   --color-main: #FF6B35;
-  --color-secondary: #FFB399;;
-  --color-secondary-red: #1F2937;
+  --color-secondary: #FFB399;
+  --color-secondary-red: #ef4444;
   --color-p: #1F2937;
-  --color-p-dark: #2176AE;
-
-  --primary-hover: #E55A2B
+  --color-p-dark: #111827;
+  --color-primary-hover: #E55A2B;
+  
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-in-out;
+  
+  /* Keyframes */
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
 }
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
