@@ -4,7 +4,7 @@ sys.path.append('/Users/tom/Developer/GitHub/slidescore/server')
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-from pptxAnalyser import SlideAnalyzer
+from pptxAnalyser import SlideAnalyser
 import os
 import uuid
 
@@ -28,12 +28,12 @@ def index():
     return jsonify({
         'service': 'SlideScore API',
         'endpoints': {
-            'analyze': 'POST /api/analyze (upload .pptx file)'
+            'analyse': 'POST /api/analyse (upload .pptx file)'
         }
     })
 
 @app.route('/api/analyse', methods=['POST'])
-def analyze():
+def analyse():
     # Check if file present
     if 'ppt' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
@@ -53,9 +53,9 @@ def analyze():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
         
-        # Analyze
-        analyzer = SlideAnalyzer(filepath, file.filename.split('.')[0])
-        report = analyzer.analyze()
+        # Analyse
+        analyser = SlideAnalyser(filepath, file.filename.split('.')[0])
+        report = analyser.analyse()
         
         # Cleanup
         os.remove(filepath)

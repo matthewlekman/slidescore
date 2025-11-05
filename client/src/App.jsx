@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Uploader from './components/Uploader'
-import { analyzePresentation} from './services/api';
+import { analysePresentation} from './services/api';
 import Dashboard from './components/Dashboard';
 import Logo from './assets/slidescore-logo-centered.svg';
 import Floaters from './components/Floaters';
@@ -11,7 +11,7 @@ function App() {
 
   const handleAnalysis = async (file) => {
     try {
-      const result = await analyzePresentation(file);
+      const result = await analysePresentation(file);
       console.log("Analysis result: ", result);
 
       const { report } = result;
@@ -40,7 +40,7 @@ return (
         {!reportData && (
           <>
             <div className="app-hero">
-              <h1 className="hero-title">Upload. Analyze. Improve.</h1>
+              <h1 className="hero-title">Upload. Analyse. Improve.</h1>
               <p className="hero-subtitle">
                 SlideScore evaluates your presentations against best practices for readability and design.
                 Identify slides with text that's too small, content that's too dense, or design inconsistencies—all in seconds. 
@@ -48,7 +48,7 @@ return (
               </p>
             </div>
             <div className="uploader-wrapper">
-              <Uploader onAnalyze={handleAnalysis}/>
+              <Uploader onAnalyse={handleAnalysis}/>
             </div>
           </>
         )}

@@ -7,7 +7,7 @@ import colorsys
 import os
 import zipfile
 
-class SlideAnalyzer:
+class SlideAnalyser:
 
     def __init__(self, filepath, filename):
 
@@ -155,7 +155,7 @@ class SlideAnalyzer:
     
 
 
-    def analyze(self):
+    def analyse(self):
         # Run all checks and generate report
 
         self.parse_slides()
@@ -178,7 +178,7 @@ class SlideAnalyzer:
         # Per-slide checks
         for slide in self.slides_data:
 
-            slide_report = self._analyze_slide(slide)
+            slide_report = self._analyse_slide(slide)
             report['slide_details'].append(slide_report)
             
             # Aggregate issues
@@ -211,8 +211,8 @@ class SlideAnalyzer:
     
 
 
-    def _analyze_slide(self, slide):
-        # Analyze individual slide
+    def _analyse_slide(self, slide):
+        # Analyse individual slide
 
         result = {
             'slide_number': slide['slide_number'],

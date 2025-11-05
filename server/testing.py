@@ -1,14 +1,14 @@
 import sys
 sys.path.append('/Users/tom/Developer/GitHub/slidescore/server')
 
-from pptxAnalyser import SlideAnalyzer
+from pptxAnalyser import SlideAnalyser
 import json
 
 
 # Test with your demo deck
 if __name__ == '__main__':
-    analyzer = SlideAnalyzer('goodPPT.pptx')
-    report = analyzer.analyze()
+    analyser = SlideAnalyser('goodPPT.pptx')
+    report = analyser.analyse()
     
     print(json.dumps(report, indent=2))
     

@@ -1,7 +1,7 @@
 import axios from 'axios';
 const API_BASE_URL = 'http://localhost:8000/api';
 
-export async function analyzePresentation(file) {
+export async function analysePresentation(file) {
     const formData = new FormData();
     formData.append("ppt", file);
 
